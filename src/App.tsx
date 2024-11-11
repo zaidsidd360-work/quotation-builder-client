@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 // import MultiStepFormNew, { FormStepType } from "./components/MultiStepFormNew";
 import MultiStepForm from "./newForm/MultiStepForm";
+import { FormStep } from "./newForm/types";
 
 const dummyFormSteps = [
 	{
@@ -144,28 +145,30 @@ const dummyFormSteps = [
 ];
 
 const App: React.FC = () => {
-	const [formSteps, setFormSteps] = useState(dummyFormSteps);
+	const [formSteps, setFormSteps] = useState<FormStep[]>([]);
 	const [clientName, setClientName] = useState<string>("LiveWire");
 
 	// Since backend is not hosted yet, using dummy data
-	// useEffect(() => {
-	// 	// Fetch form steps from the API
-	// 	const fetchFormSteps = async () => {
-	// 		try {
-	// 			const response = await fetch(
-	// 				"http://localhost:5000/api/forms/Solar/6717720d9884470f8ecee0da"
-	// 			);
-	// 			const data = await response.json();
-	// 			console.log(data);
-	// 			setClientName(data.name);
-	// 			setFormSteps(data.formSteps);
-	// 		} catch (error) {
-	// 			console.error("Error fetching form steps:", error);
-	// 		}
-	// 	};
+	useEffect(() => {
+		// Fetch form steps from the API
+		// const fetchFormSteps = async () => {
+		// 	try {
+		// 		const response = await fetch(
+		// 			"http://localhost:5000/api/forms/Solar/6717720d9884470f8ecee0da"
+		// 		);
+		// 		const data = await response.json();
+		// 		console.log(data);
+		// 		setClientName(data.name);
+		// 		setFormSteps(data.formSteps);
+		// 	} catch (error) {
+		// 		console.error("Error fetching form steps:", error);
+		// 	}
+		// };
 
-	// 	fetchFormSteps();
-	// }, []);
+		// fetchFormSteps();
+		setFormSteps((prevFormSteps) => [...prevFormSteps, ...dummyFormSteps]);
+		setClientName("LiveWire");
+	}, []);
 
 	return (
 		<div className="min-h-screen flex items-center justify-center bg-gray-100">
