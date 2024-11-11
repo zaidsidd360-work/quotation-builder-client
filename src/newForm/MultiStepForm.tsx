@@ -43,7 +43,7 @@ const MultiStepForm = ({ steps, onSubmit }: MultiStepFormProps) => {
 	};
 
 	return (
-		<div className="max-w-3xl mx-auto p-6 bg-white rounded-2xl shadow-lg border border-gray-300">
+		<div className="sm:max-w-3xl w-[90vw] mx-auto p-6 bg-white rounded-2xl shadow-lg border border-gray-300">
 			<StepIndicator
 				totalSteps={steps?.length}
 				currentStep={currentStep}

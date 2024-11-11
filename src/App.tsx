@@ -166,13 +166,13 @@ const App: React.FC = () => {
 		// };
 
 		// fetchFormSteps();
-		setFormSteps((prevFormSteps) => [...prevFormSteps, ...dummyFormSteps]);
+		setFormSteps(() => [...dummyFormSteps]);
 		setClientName("LiveWire");
 	}, []);
 
 	return (
 		<div className="min-h-screen flex items-center justify-center bg-gray-100">
-			<div className="w-max p-8">
+			<div className="w-max">
 				<h1 className="text-3xl font-bold text-center text-gray-700 mb-8">
 					{clientName} Solar
 				</h1>
