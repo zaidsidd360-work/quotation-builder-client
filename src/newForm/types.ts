@@ -11,7 +11,7 @@ export interface FormField {
 }
 
 export interface FormStep {
-	_id: string;
+	_id?: string;
 	stepTitle: string;
 	fields: FormField[];
 }
