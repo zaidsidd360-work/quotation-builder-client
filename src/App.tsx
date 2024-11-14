@@ -143,22 +143,22 @@ const App: React.FC = () => {
 	const [loading, setLoading] = useState(true); // Add loading state
 
 	useEffect(() => {
-		const fetchFormSteps = async () => {
-			try {
-				const response = await fetch(
-					"http://localhost:5000/api/forms/Fencing/671778939884470f8edb5c0e"
-				);
-				const data = await response.json();
-				console.log(data);
-				setClientName(data.name);
-				setClientIndustry(data.industry);
-				setFormSteps(data.formSteps);
-			} catch (error) {
-				console.error("Error fetching form steps:", error);
-			} finally {
-				setLoading(false); // Set loading to false after data is fetched
-			}
-		};
+		// const fetchFormSteps = async () => {
+		// 	try {
+		// 		const response = await fetch(
+		// 			"http://localhost:5000/api/forms/Fencing/671778939884470f8edb5c0e"
+		// 		);
+		// 		const data = await response.json();
+		// 		console.log(data);
+		// 		setClientName(data.name);
+		// 		setClientIndustry(data.industry);
+		// 		setFormSteps(data.formSteps);
+		// 	} catch (error) {
+		// 		console.error("Error fetching form steps:", error);
+		// 	} finally {
+		// 		setLoading(false); // Set loading to false after data is fetched
+		// 	}
+		// };
 
 		// fetchFormSteps();
 		setFormSteps(() => [...dummyFormSteps]);
