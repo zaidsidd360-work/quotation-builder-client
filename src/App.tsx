@@ -4,55 +4,71 @@ import "./App.css";
 import MultiStepForm from "./newForm/MultiStepForm";
 import { FormStep } from "./newForm/types";
 
-const dummyFormSteps = [
+const dummyFormSteps: FormStep[] = [
 	{
-		stepTitle: "Qualification",
+		stepTitle: "Fence Info",
 		fields: [
 			{
-				options: ["Yes", "No"],
-				_id: "672c494bcf46ae88baf54a31",
+				options: ["Wood", "Vinyl", "Chain Link", "Aluminum"],
+				_id: "673d21a49884470f8ed89c02",
+				type: "dropdown",
+				label: "Fence Material",
+				id: "fence_material",
+				placeholder: "Select fence material",
+				required: true,
+			},
+			{
+				options: [],
+				_id: "673d21a49884470f8ed89c03",
+				type: "number",
+				label: "Fence Length (feet)",
+				id: "fence_length",
+				placeholder: "Enter total length in feet",
+				required: true,
+			},
+			{
+				options: [],
+				_id: "673d21a49884470f8ed89c04",
+				type: "number",
+				label: "Fence Height (feet)",
+				id: "fence_height",
+				placeholder: "Enter height in feet",
+				required: true,
+			},
+			{
+				options: ["Standard", "Premium"],
+				_id: "673d21a49884470f8ed89c05",
+				type: "dropdown",
+				label: "Fence Style",
+				id: "fence_style",
+				placeholder: "Select fence style",
+				required: true,
+			},
+			{
+				options: ["Front Yard", "Back Yard", "Both"],
+				_id: "673d21a49884470f8ed89c06",
 				type: "radio",
-				label: "Are you the homeowner?",
-				id: "is_homeowner",
-				required: true,
-			},
-			{
-				options: [
-					"Less than $100",
-					"$100-$200",
-					"$201-$300",
-					"$301-$400",
-					"More than $400",
-				],
-				_id: "672c494bcf46ae88baf54a32",
-				type: "dropdown",
-				label: "Average Monthly Energy Bill",
-				id: "energy_bill",
-				placeholder: "Select your average monthly bill",
-				required: true,
-			},
-			{
-				options: [
-					"Excellent (700+)",
-					"Good (640-699)",
-					"Fair (580-639)",
-					"Poor (Below 580)",
-				],
-				_id: "672c494bcf46ae88baf54a33",
-				type: "dropdown",
-				label: "Credit Score Range",
-				id: "credit_score",
-				placeholder: "Select your credit score range",
+				label: "Installation Area",
+				id: "installation_area",
 				required: true,
 			},
 		],
 	},
 	{
-		stepTitle: "Property Information",
+		stepTitle: "Customer Info",
 		fields: [
 			{
 				options: [],
-				_id: "672c494bcf46ae88baf54a35",
+				_id: "673d21a49884470f8ed89c08",
+				type: "text",
+				label: "Full Name",
+				id: "full_name",
+				placeholder: "Enter your name",
+				required: true,
+			},
+			{
+				options: [],
+				_id: "673d21a49884470f8ed89c09",
 				type: "text",
 				label: "Property Address",
 				id: "property_address",
@@ -61,79 +77,55 @@ const dummyFormSteps = [
 			},
 			{
 				options: [],
-				_id: "672c494bcf46ae88baf54a36",
-				type: "number",
-				label: "Roof Age (years)",
-				id: "roof_age",
-				placeholder: "Enter roof age in years",
+				_id: "673d21a49884470f8ed89c0a",
+				type: "phone",
+				label: "Phone Number",
+				id: "phone_number",
+				placeholder: "Enter your phone number",
 				required: true,
 			},
-			{
-				options: ["Flat", "Sloped", "Multiple levels"],
-				_id: "672c494bcf46ae88baf54a37",
-				type: "dropdown",
-				label: "Roof Type",
-				id: "roof_type",
-				placeholder: "Select your roof type",
-				required: true,
-			},
-		],
-	},
-	{
-		stepTitle: "Energy Usage",
-		fields: [
 			{
 				options: [],
-				_id: "672c494bcf46ae88baf54a39",
-				type: "number",
-				label: "Square Footage of Home",
-				id: "home_sqft",
-				placeholder: "Enter home square footage",
-				required: true,
-			},
-			{
-				options: ["1-2", "3-4", "5+"],
-				_id: "672c494bcf46ae88baf54a3a",
-				type: "dropdown",
-				label: "Number of Occupants",
-				id: "occupants",
-				placeholder: "Select number of occupants",
-				required: true,
-			},
-			{
-				options: ["Central AC", "Window Units", "Heat Pump", "None"],
-				_id: "672c494bcf46ae88baf54a3b",
-				type: "dropdown",
-				label: "Cooling System Type",
-				id: "cooling_system",
-				placeholder: "Select cooling system type",
+				_id: "673d21a49884470f8ed89c0b",
+				type: "email",
+				label: "Email",
+				id: "email",
+				placeholder: "Enter your email address",
 				required: false,
 			},
 		],
 	},
 	{
-		stepTitle: "Additional Information",
+		stepTitle: "Extras",
 		fields: [
 			{
-				options: ["Morning", "Afternoon", "Evening", "Weekend"],
-				_id: "672c494bcf46ae88baf54a3d",
+				options: ["None", "Single Gate", "Double Gate"],
+				_id: "673d21a49884470f8ed89c0d",
 				type: "dropdown",
-				label: "Preferred Installation Time",
-				id: "preferred_time",
-				placeholder: "Select preferred installation time",
+				label: "Gate Option",
+				id: "gate_option",
+				placeholder: "Select gate option",
 				required: false,
 			},
 			{
-				options: ["Yes", "No", "Not sure"],
-				_id: "672c494bcf46ae88baf54a3e",
+				options: ["Yes", "No"],
+				_id: "673d21a49884470f8ed89c0e",
 				type: "radio",
-				label: "Interested in Battery Storage?",
-				id: "battery_interest",
+				label: "Stain or Sealant",
+				id: "stain_sealant",
+				required: false,
+			},
+			{
+				options: ["Yes", "No"],
+				_id: "673d21a49884470f8ed89c0f",
+				type: "radio",
+				label: "Include Decorative Elements",
+				id: "decorative_elements",
 				required: false,
 			},
 			{
 				options: [],
-				_id: "672c494bcf46ae88baf54a3f",
+				_id: "673d21a49884470f8ed89c10",
 				type: "textarea",
 				label: "Additional Comments",
 				id: "comments",
@@ -145,49 +137,52 @@ const dummyFormSteps = [
 ];
 
 const App: React.FC = () => {
-	const [formSteps, setFormSteps] = useState<FormStep[]>([]);
-	const [clientName, setClientName] = useState<string>("LiveWire");
+	const [formSteps, setFormSteps] = useState<FormStep[]>(dummyFormSteps);
+	const [clientName, setClientName] = useState<string>("");
+	const [clientIndustry, setClientIndustry] = useState<string>("");
+	const [loading, setLoading] = useState(true); // Add loading state
 
-	// Since backend is not hosted yet, using dummy data
 	useEffect(() => {
-		// Fetch form steps from the API
-		// const fetchFormSteps = async () => {
-		// 	try {
-		// 		const response = await fetch(
-		// 			"http://localhost:5000/api/forms/Solar/6717720d9884470f8ecee0da"
-		// 		);
-		// 		const data = await response.json();
-		// 		console.log(data);
-		// 		setClientName(data.name);
-		// 		setFormSteps(data.formSteps);
-		// 	} catch (error) {
-		// 		console.error("Error fetching form steps:", error);
-		// 	}
-		// };
+		const fetchFormSteps = async () => {
+			try {
+				const response = await fetch(
+					"http://localhost:5000/api/forms/Fencing/671778939884470f8edb5c0e"
+				);
+				const data = await response.json();
+				console.log(data);
+				setClientName(data.name);
+				setClientIndustry(data.industry);
+				setFormSteps(data.formSteps);
+			} catch (error) {
+				console.error("Error fetching form steps:", error);
+			} finally {
+				setLoading(false); // Set loading to false after data is fetched
+			}
+		};
 
 		// fetchFormSteps();
 		setFormSteps(() => [...dummyFormSteps]);
+		setLoading(false);
 		setClientName("LiveWire");
+		setClientIndustry("Fencing");
 	}, []);
+
+	// Display loading message until data is fully fetched
+	if (loading) {
+		return <p>Loading form steps...</p>;
+	}
 
 	return (
 		<div className="min-h-screen flex items-center justify-center bg-gray-100">
 			<div className="w-max">
 				<h1 className="text-3xl font-bold text-center text-gray-700 mb-8">
-					{clientName} Solar
+					{clientName} {clientIndustry}
 				</h1>
 				<MultiStepForm
 					steps={formSteps}
 					onSubmit={(data) => console.log(data)}
+					clientIndustry={clientIndustry} // Pass clientIndustry down
 				/>
-				{/* {formSteps && formSteps.length > 0 ? (
-					<MultiStepFormdf
-						steps={formSteps}
-						onSubmit={(data) => console.log(data)}
-					/>
-				) : (
-					<p>Loading form steps...</p>
-				)} */}
 			</div>
 		</div>
 	);
